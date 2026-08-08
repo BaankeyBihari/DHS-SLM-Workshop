@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edge AI — Medical Assistant Demo</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #0a0f0a;
+    --surface:   #111811;
+    --border:    #1e2d1e;
+    --green:     #4ade80;
+    --green-dim: #1a4a2a;
+    --green-glow:#4ade8033;
+    --text:      #e8f5e8;
+    --muted:     #5a7a5a;
+    --danger:    #f87171;
+    --mono:      'DM Mono', monospace;
+    --serif:     'Instrument Serif', serif;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--mono);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px 48px;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Subtle grid background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 480px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── Header ── */
+  .header {
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .badge-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 8px var(--green);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--green); }
+    50%       { opacity: 0.5; box-shadow: 0 0 3px var(--green); }
+  }
+
+  .badge {
+    font-size: 10px;
+    color: var(--green);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .title {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .title em {
+    font-style: italic;
+    color: var(--green);
+  }
+
+  .subtitle {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    line-height: 1.6;
+  }
+
+  /* ── Stats bar ── */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .stat {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 10px 8px;
+    text-align: center;
+  }
+
+  .stat-val {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--green);
+    line-height: 1;
+    margin-bottom: 4px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .stat-label {
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ── Question pills ── */
+  .questions-label {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .pill {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 5px 10px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--surface);
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.15s;
+    line-height: 1.3;
+  }
+
+  .pill:hover {
+    border-color: var(--green);
+    color: var(--green);
+    background: var(--green-dim);
+  }
+
+  /* ── Input area ── */
+  .input-wrap {
+    position: relative;
+    margin-bottom: 12px;
+  }
+
+  textarea {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.6;
+    padding: 12px 14px;
+    resize: none;
+    min-height: 80px;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  textarea:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px var(--green-glow);
+  }
+
+  textarea::placeholder { color: var(--muted); }
+
+  /* ── Button ── */
+  button#askBtn {
+    width: 100%;
+    padding: 13px;
+    background: var(--green);
+    color: #0a0f0a;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: all 0.15s;
+    margin-bottom: 16px;
+  }
+
+  button#askBtn:hover:not(:disabled) {
+    background: #6ee7a0;
+    box-shadow: 0 0 20px var(--green-glow);
+  }
+
+  button#askBtn:disabled {
+    background: var(--green-dim);
+    color: var(--muted);
+    cursor: not-allowed;
+  }
+
+  /* ── Response box ── */
+  .response-wrap {
+    display: none;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+
+  .response-wrap.visible { display: block; }
+
+  .response-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--border);
+    background: #0d150d;
+  }
+
+  .response-label {
+    font-size: 10px;
+    color: var(--green);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .response-meta {
+    font-size: 10px;
+    color: var(--muted);
+  }
+
+  .response-body {
+    padding: 14px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text);
+    min-height: 60px;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  /* typing cursor */
+  .cursor {
+    display: inline-block;
+    width: 2px; height: 14px;
+    background: var(--green);
+    margin-left: 2px;
+    vertical-align: middle;
+    animation: blink 0.8s step-end infinite;
+  }
+
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* ── Perf row ── */
+  .perf-row {
+    display: none;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--muted);
+    padding: 0 2px;
+    margin-bottom: 16px;
+  }
+
+  .perf-row.visible { display: flex; }
+  .perf-val { color: var(--green); }
+
+  /* ── Error ── */
+  .error-box {
+    display: none;
+    background: #1a0a0a;
+    border: 1px solid #3a1a1a;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 12px;
+    color: var(--danger);
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+
+  .error-box.visible { display: block; }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    line-height: 1.8;
+  }
+
+  .footer span { color: var(--green); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="badge-row">
+      <div class="dot"></div>
+      <span class="badge">Live · Edge AI Demo · No Cloud</span>
+    </div>
+    <h1 class="title">Medical <em>Assistant</em></h1>
+    <p class="subtitle">
+      Running on a local laptop via llama.cpp · SmolLM 135M Q4_K_M<br>
+      Your question never leaves this room.
+    </p>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-val" id="statTps">—</div>
+      <div class="stat-label">tok / sec</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val" id="statTime">—</div>
+      <div class="stat-label">seconds</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val" id="statCount">0</div>
+      <div class="stat-label">queries</div>
+    </div>
+  </div>
+
+  <!-- Quick questions -->
+  <div class="questions-label">Quick questions</div>
+  <div class="pills">
+    <div class="pill" onclick="setQ(this)">Normal body temperature?</div>
+    <div class="pill" onclick="setQ(this)">Symptoms of dehydration?</div>
+    <div class="pill" onclick="setQ(this)">What is diabetes?</div>
+    <div class="pill" onclick="setQ(this)">Normal heart rate?</div>
+    <div class="pill" onclick="setQ(this)">What causes high BP?</div>
+    <div class="pill" onclick="setQ(this)">What does the liver do?</div>
+    <div class="pill" onclick="setQ(this)">Symptoms of a heart attack?</div>
+    <div class="pill" onclick="setQ(this)">How much water per day?</div>
+  </div>
+
+  <!-- Input -->
+  <div class="input-wrap">
+    <textarea id="question" placeholder="Type any medical question..." rows="3"></textarea>
+  </div>
+
+  <button id="askBtn" onclick="ask()">Ask the Edge AI</button>
+
+  <!-- Error -->
+  <div class="error-box" id="errorBox"></div>
+
+  <!-- Response -->
+  <div class="response-wrap" id="responseWrap">
+    <div class="response-header">
+      <span class="response-label">Response</span>
+      <span class="response-meta" id="responseMeta"></span>
+    </div>
+    <div class="response-body" id="responseBody"></div>
+  </div>
+
+  <!-- Perf -->
+  <div class="perf-row" id="perfRow">
+    <span>Speed: <span class="perf-val" id="perfTps">—</span> tok/s</span>
+    <span>Time: <span class="perf-val" id="perfTime">—</span>s</span>
+    <span>Tokens: <span class="perf-val" id="perfTokens">—</span></span>
+    <span>🔒 100% local</span>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <span>192.168.1.6:8080</span> · SmolLM 135M<br>
+    Module 6 · Edge AI & TinyML · No cloud · No API key · No data sent
+  </div>
+
+</div>
+
+<script>
+  const SERVER = 'http://192.168.1.6:8080';
+  let queryCount = 0;
+
+  function setQ(el) {
+    document.getElementById('question').value = el.textContent.replace('?', '') + '?';
+    document.getElementById('question').focus();
+  }
+
+  async function ask() {
+    const q = document.getElementById('question').value.trim();
+    if (!q) return;
+
+    const btn       = document.getElementById('askBtn');
+    const respWrap  = document.getElementById('responseWrap');
+    const respBody  = document.getElementById('responseBody');
+    const respMeta  = document.getElementById('responseMeta');
+    const errorBox  = document.getElementById('errorBox');
+    const perfRow   = document.getElementById('perfRow');
+
+    // Reset UI
+    btn.disabled = true;
+    btn.textContent = 'Thinking...';
+    errorBox.className = 'error-box';
+    respWrap.className = 'response-wrap visible';
+    respBody.innerHTML = '<span class="cursor"></span>';
+    respMeta.textContent = 'generating...';
+    perfRow.className = 'perf-row';
+
+    const startTime = Date.now();
+
+    try {
+      const res = await fetch(`${SERVER}/v1/chat/completions`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'smollm',
+          messages: [
+            {
+              role: 'system',
+              content: 'You are a concise medical information assistant. Answer clearly in 2-3 sentences. No lists unless necessary. No disclaimers.'
+            },
+            { role: 'user', content: q }
+          ],
+          max_tokens: 120,
+          temperature: 0.1,
+          stream: true
+        })
+      });
+
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.error?.message || `HTTP ${res.status}`);
+      }
+
+      // Stream the response
+      const reader  = res.body.getReader();
+      const decoder = new TextDecoder();
+      let fullText   = '';
+      let tokenCount = 0;
+
+      respBody.textContent = '';
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        const chunk = decoder.decode(value);
+        const lines = chunk.split('\n').filter(l => l.startsWith('data: '));
+
+        for (const line of lines) {
+          const data = line.replace('data: ', '').trim();
+          if (data === '[DONE]') continue;
+          try {
+            const parsed = JSON.parse(data);
+            const token  = parsed.choices?.[0]?.delta?.content || '';
+            fullText += token;
+            tokenCount++;
+            respBody.textContent = fullText;
+          } catch {}
+        }
+      }
+
+      // Final metrics
+      const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
+      const tps     = (tokenCount / elapsed).toFixed(1);
+
+      queryCount++;
+
+      // Update stats bar
+      document.getElementById('statTps').textContent   = tps;
+      document.getElementById('statTime').textContent  = elapsed + 's';
+      document.getElementById('statCount').textContent = queryCount;
+
+      // Update perf row
+      document.getElementById('perfTps').textContent    = tps;
+      document.getElementById('perfTime').textContent   = elapsed;
+      document.getElementById('perfTokens').textContent = tokenCount;
+      perfRow.className = 'perf-row visible';
+
+      respMeta.textContent = `${tokenCount} tokens · ${elapsed}s`;
+
+    } catch (err) {
+      respWrap.className = 'response-wrap';
+      errorBox.className = 'error-box visible';
+      if (err.message.includes('fetch') || err.message.includes('connect')) {
+        errorBox.textContent = '⚠️ Cannot reach the server at ' + SERVER + '\nMake sure llama-server is running on the laptop.';
+      } else {
+        errorBox.textContent = '⚠️ ' + err.message;
+      }
+    }
+
+    btn.disabled = false;
+    btn.textContent = 'Ask the Edge AI';
+  }
+
+  // Enter key submits
+  document.getElementById('question').addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      ask();
+    }
+  });
+</script>
+</body>
+</html>
