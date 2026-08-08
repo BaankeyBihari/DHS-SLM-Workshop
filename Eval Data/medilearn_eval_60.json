@@ -1,0 +1,786 @@
+{
+  "name": "MediLearn Workshop Evaluation Set",
+  "version": "1.0",
+  "description": "60-question fixed evaluation set used identically across Modules 1, 2, 3, 4, and 6 to track model improvement across the workshop.",
+  "difficulty_legend": {
+    "L1": "Basic recall - single-fact, flashcard-style questions",
+    "L2": "Intermediate - clinical scenario requiring synthesis of guideline/clinical knowledge",
+    "L3": "Advanced - multi-step reasoning, differential diagnosis, or mechanism explanation"
+  },
+  "questions": [
+    {
+      "id": "Q001",
+      "category": "Cardiology",
+      "difficulty": "L1",
+      "question": "What is the normal resting heart rate range for a healthy adult?",
+      "key_terms": [
+        "60",
+        "100",
+        "beats per minute",
+        "bpm"
+      ],
+      "reference_answer": "A normal resting heart rate for adults is approximately 60-100 beats per minute."
+    },
+    {
+      "id": "Q002",
+      "category": "Cardiology",
+      "difficulty": "L1",
+      "question": "What does the P wave represent on an ECG?",
+      "key_terms": [
+        "atrial",
+        "depolarization",
+        "p wave"
+      ],
+      "reference_answer": "The P wave represents atrial depolarization, the electrical activation of the atria before they contract."
+    },
+    {
+      "id": "Q003",
+      "category": "Cardiology",
+      "difficulty": "L1",
+      "question": "What do the S1 and S2 heart sounds represent?",
+      "key_terms": [
+        "mitral",
+        "tricuspid",
+        "aortic",
+        "pulmonic",
+        "valve closure"
+      ],
+      "reference_answer": "S1 is caused by closure of the mitral and tricuspid valves at the start of systole; S2 is caused by closure of the aortic and pulmonic valves at the start of diastole."
+    },
+    {
+      "id": "Q004",
+      "category": "Cardiology",
+      "difficulty": "L2",
+      "question": "A 58-year-old smoker presents with substernal chest pain radiating to the left arm, diaphoresis, and dyspnea. What is the most likely diagnosis and first-line antiplatelet therapy?",
+      "key_terms": [
+        "myocardial infarction",
+        "mi",
+        "acute coronary syndrome",
+        "aspirin",
+        "clopidogrel",
+        "p2y12"
+      ],
+      "reference_answer": "This presentation is consistent with acute myocardial infarction (ACS). First-line antiplatelet therapy is aspirin, typically combined with a P2Y12 inhibitor such as clopidogrel."
+    },
+    {
+      "id": "Q005",
+      "category": "Cardiology",
+      "difficulty": "L2",
+      "question": "What ECG finding distinguishes an NSTEMI from a STEMI?",
+      "key_terms": [
+        "st elevation",
+        "st segment",
+        "troponin",
+        "nstemi",
+        "stemi"
+      ],
+      "reference_answer": "STEMI shows persistent ST-segment elevation on ECG, while NSTEMI does not show ST elevation but troponin is still elevated, indicating myocardial injury without complete vessel occlusion."
+    },
+    {
+      "id": "Q006",
+      "category": "Cardiology",
+      "difficulty": "L2",
+      "question": "A patient with COPD presents with dyspnea, orthopnea, JVD, and an S3 gallop. What is the likely diagnosis and first-line medication class?",
+      "key_terms": [
+        "heart failure",
+        "diuretic",
+        "loop diuretic",
+        "fluid overload"
+      ],
+      "reference_answer": "These findings suggest decompensated heart failure with volume overload. First-line treatment is a loop diuretic such as furosemide to reduce fluid overload."
+    },
+    {
+      "id": "Q007",
+      "category": "Cardiology",
+      "difficulty": "L2",
+      "question": "What is the recommended blood pressure target for a patient with hypertension and chronic kidney disease per current guidelines?",
+      "key_terms": [
+        "130",
+        "80",
+        "mmhg",
+        "target"
+      ],
+      "reference_answer": "Current guidelines generally recommend a blood pressure target below 130/80 mmHg for patients with hypertension and chronic kidney disease."
+    },
+    {
+      "id": "Q008",
+      "category": "Cardiology",
+      "difficulty": "L3",
+      "question": "A 72-year-old with HFrEF (EF 30%) remains symptomatic despite an ACE inhibitor and beta-blocker. What two additional guideline-directed therapies should be considered, and why?",
+      "key_terms": [
+        "mineralocorticoid receptor antagonist",
+        "mra",
+        "sglt2 inhibitor",
+        "spironolactone",
+        "mortality benefit"
+      ],
+      "reference_answer": "Guideline-directed therapy adds a mineralocorticoid receptor antagonist (e.g., spironolactone) and an SGLT2 inhibitor, both of which have demonstrated mortality and hospitalization benefit on top of ACE inhibitor and beta-blocker therapy in HFrEF."
+    },
+    {
+      "id": "Q009",
+      "category": "Cardiology",
+      "difficulty": "L3",
+      "question": "Explain why beta-blockers are avoided in acute decompensated heart failure with cardiogenic shock but used in chronic stable heart failure.",
+      "key_terms": [
+        "negative inotrope",
+        "cardiac output",
+        "cardiogenic shock",
+        "chronic remodeling"
+      ],
+      "reference_answer": "In acute cardiogenic shock, beta-blockers further reduce contractility and cardiac output, worsening hypoperfusion. In chronic stable heart failure, beta-blockers reduce sympathetic overdrive and adverse remodeling over time, improving long-term survival once the patient is hemodynamically stable."
+    },
+    {
+      "id": "Q010",
+      "category": "Cardiology",
+      "difficulty": "L3",
+      "question": "A patient on warfarin presents with an INR of 8 and no active bleeding. What is the appropriate management?",
+      "key_terms": [
+        "hold warfarin",
+        "vitamin k",
+        "oral vitamin k",
+        "inr"
+      ],
+      "reference_answer": "Warfarin should be held, and oral vitamin K should be administered to reduce the INR, since the patient is not actively bleeding and rapid reversal with clotting factors is not required."
+    },
+    {
+      "id": "Q011",
+      "category": "Neurology",
+      "difficulty": "L1",
+      "question": "Which cranial nerves are primarily responsible for eye movement?",
+      "key_terms": [
+        "cranial nerve iii",
+        "oculomotor",
+        "trochlear",
+        "abducens",
+        "cn iv",
+        "cn vi"
+      ],
+      "reference_answer": "Eye movement is controlled by cranial nerve III (oculomotor), IV (trochlear), and VI (abducens)."
+    },
+    {
+      "id": "Q012",
+      "category": "Neurology",
+      "difficulty": "L1",
+      "question": "What is the primary function of the cerebellum?",
+      "key_terms": [
+        "coordination",
+        "balance",
+        "motor",
+        "fine motor control"
+      ],
+      "reference_answer": "The cerebellum coordinates voluntary movement, balance, and fine motor control."
+    },
+    {
+      "id": "Q013",
+      "category": "Neurology",
+      "difficulty": "L1",
+      "question": "Define aphasia and name its two major types.",
+      "key_terms": [
+        "aphasia",
+        "broca",
+        "wernicke",
+        "language"
+      ],
+      "reference_answer": "Aphasia is an impairment of language production or comprehension. The two major types are Broca's (expressive) aphasia and Wernicke's (receptive) aphasia."
+    },
+    {
+      "id": "Q014",
+      "category": "Neurology",
+      "difficulty": "L2",
+      "question": "A patient presents with sudden facial drooping, arm weakness, and aphasia. What is the diagnostic and treatment window for thrombolysis?",
+      "key_terms": [
+        "stroke",
+        "tpa",
+        "thrombolysis",
+        "4.5 hours",
+        "ct"
+      ],
+      "reference_answer": "This presentation suggests acute ischemic stroke. After a non-contrast CT rules out hemorrhage, IV tPA (thrombolysis) can be given within 4.5 hours of symptom onset."
+    },
+    {
+      "id": "Q015",
+      "category": "Neurology",
+      "difficulty": "L2",
+      "question": "What CSF findings differentiate bacterial from viral meningitis?",
+      "key_terms": [
+        "glucose",
+        "protein",
+        "neutrophil",
+        "lymphocyte",
+        "csf"
+      ],
+      "reference_answer": "Bacterial meningitis typically shows low glucose, high protein, and neutrophil predominance in CSF, while viral meningitis shows normal glucose, mildly elevated protein, and lymphocyte predominance."
+    },
+    {
+      "id": "Q016",
+      "category": "Neurology",
+      "difficulty": "L2",
+      "question": "A patient with diplopia, ptosis, and symptoms that improve with rest is suspected to have which neuromuscular disorder, and what test confirms it?",
+      "key_terms": [
+        "myasthenia gravis",
+        "acetylcholine receptor antibody",
+        "edrophonium",
+        "ice pack test"
+      ],
+      "reference_answer": "This presentation is consistent with myasthenia gravis. It can be confirmed with acetylcholine receptor antibody testing or the edrophonium (Tensilon) test."
+    },
+    {
+      "id": "Q017",
+      "category": "Neurology",
+      "difficulty": "L2",
+      "question": "What is the first-line treatment for status epilepticus?",
+      "key_terms": [
+        "benzodiazepine",
+        "lorazepam",
+        "diazepam",
+        "iv"
+      ],
+      "reference_answer": "First-line treatment for status epilepticus is an IV benzodiazepine, such as lorazepam or diazepam."
+    },
+    {
+      "id": "Q018",
+      "category": "Neurology",
+      "difficulty": "L3",
+      "question": "A patient presents with ascending symmetric weakness after a recent gastrointestinal infection. What is the diagnosis, expected CSF finding, and key treatment?",
+      "key_terms": [
+        "guillain-barre",
+        "albuminocytologic dissociation",
+        "ivig",
+        "plasmapheresis"
+      ],
+      "reference_answer": "This is consistent with Guillain-Barre syndrome. CSF typically shows albuminocytologic dissociation (elevated protein with normal cell count). Treatment is IVIG or plasmapheresis."
+    },
+    {
+      "id": "Q019",
+      "category": "Neurology",
+      "difficulty": "L3",
+      "question": "A 65-year-old presents with a sudden severe headache described as 'the worst of my life,' with no focal deficits, and a negative CT. What is the next diagnostic step, and what condition must be ruled out?",
+      "key_terms": [
+        "lumbar puncture",
+        "subarachnoid hemorrhage",
+        "xanthochromia"
+      ],
+      "reference_answer": "The next step is a lumbar puncture to look for xanthochromia, since a sudden severe ('thunderclap') headache raises concern for subarachnoid hemorrhage even with a negative CT."
+    },
+    {
+      "id": "Q020",
+      "category": "Neurology",
+      "difficulty": "L3",
+      "question": "Compare the mechanism and clinical use of IV thrombolysis versus mechanical thrombectomy in acute ischemic stroke, including time windows.",
+      "key_terms": [
+        "tpa",
+        "thrombectomy",
+        "4.5 hours",
+        "24 hours",
+        "large vessel occlusion"
+      ],
+      "reference_answer": "IV thrombolysis (tPA) dissolves the clot pharmacologically and is given within 4.5 hours of onset. Mechanical thrombectomy physically removes the clot via catheter and can be used up to 24 hours in select patients with large vessel occlusion, often combined with tPA."
+    },
+    {
+      "id": "Q021",
+      "category": "Respiratory",
+      "difficulty": "L1",
+      "question": "What is the normal respiratory rate range for a resting adult?",
+      "key_terms": [
+        "12",
+        "20",
+        "breaths per minute"
+      ],
+      "reference_answer": "A normal resting respiratory rate for adults is approximately 12-20 breaths per minute."
+    },
+    {
+      "id": "Q022",
+      "category": "Respiratory",
+      "difficulty": "L1",
+      "question": "What does a low FEV1/FVC ratio indicate, obstructive or restrictive lung disease?",
+      "key_terms": [
+        "obstructive",
+        "fev1",
+        "fvc",
+        "ratio"
+      ],
+      "reference_answer": "A low FEV1/FVC ratio indicates an obstructive pattern, as seen in conditions like asthma and COPD."
+    },
+    {
+      "id": "Q023",
+      "category": "Respiratory",
+      "difficulty": "L1",
+      "question": "What is the most common cause of community-acquired pneumonia in healthy adults?",
+      "key_terms": [
+        "streptococcus pneumoniae",
+        "strep pneumoniae",
+        "pneumococcus"
+      ],
+      "reference_answer": "Streptococcus pneumoniae is the most common causative organism of community-acquired pneumonia in healthy adults."
+    },
+    {
+      "id": "Q024",
+      "category": "Respiratory",
+      "difficulty": "L2",
+      "question": "A 16-year-old presents with severe wheezing, SpO2 85%, and is unable to speak full sentences. What is the immediate management for this asthma exacerbation?",
+      "key_terms": [
+        "oxygen",
+        "albuterol",
+        "bronchodilator",
+        "corticosteroid",
+        "nebulized"
+      ],
+      "reference_answer": "Immediate management includes supplemental oxygen, nebulized short-acting beta-agonist (albuterol) bronchodilators, and systemic corticosteroids."
+    },
+    {
+      "id": "Q025",
+      "category": "Respiratory",
+      "difficulty": "L2",
+      "question": "A 72-year-old presents with productive cough, fever, and right lower lobe consolidation on chest X-ray. What is the recommended outpatient antibiotic approach for community-acquired pneumonia?",
+      "key_terms": [
+        "amoxicillin",
+        "macrolide",
+        "doxycycline",
+        "outpatient"
+      ],
+      "reference_answer": "For outpatient community-acquired pneumonia, recommended regimens include amoxicillin, or a macrolide/doxycycline, depending on comorbidities and local resistance patterns."
+    },
+    {
+      "id": "Q026",
+      "category": "Respiratory",
+      "difficulty": "L2",
+      "question": "What distinguishes Type 1 from Type 2 respiratory failure based on arterial blood gas findings?",
+      "key_terms": [
+        "hypoxemia",
+        "hypercapnia",
+        "pao2",
+        "paco2"
+      ],
+      "reference_answer": "Type 1 respiratory failure is characterized by hypoxemia with normal or low PaCO2, while Type 2 respiratory failure involves hypoxemia with hypercapnia (elevated PaCO2)."
+    },
+    {
+      "id": "Q027",
+      "category": "Respiratory",
+      "difficulty": "L2",
+      "question": "What is the mechanism by which COPD leads to chronic CO2 retention?",
+      "key_terms": [
+        "air trapping",
+        "alveolar destruction",
+        "ventilation perfusion mismatch",
+        "hypoventilation"
+      ],
+      "reference_answer": "Airway obstruction and alveolar destruction in COPD cause air trapping and ventilation-perfusion mismatch, reducing effective alveolar ventilation and leading to chronic CO2 retention over time."
+    },
+    {
+      "id": "Q028",
+      "category": "Respiratory",
+      "difficulty": "L3",
+      "question": "A patient with ARDS is being mechanically ventilated. What ventilation strategy is recommended to reduce mortality, and why?",
+      "key_terms": [
+        "low tidal volume",
+        "6 ml/kg",
+        "lung protective",
+        "barotrauma"
+      ],
+      "reference_answer": "A low tidal volume (lung-protective) ventilation strategy of approximately 6 mL/kg of predicted body weight is recommended, as it reduces ventilator-induced lung injury and barotrauma, improving survival."
+    },
+    {
+      "id": "Q029",
+      "category": "Respiratory",
+      "difficulty": "L3",
+      "question": "Explain why supplemental oxygen must be titrated carefully in chronic CO2 retainers.",
+      "key_terms": [
+        "hypoxic drive",
+        "co2 retention",
+        "respiratory drive"
+      ],
+      "reference_answer": "In chronic CO2 retainers, the respiratory drive may become more dependent on hypoxemia (hypoxic drive) rather than CO2 levels; excessive supplemental oxygen can blunt this drive and worsen hypoventilation and CO2 retention."
+    },
+    {
+      "id": "Q030",
+      "category": "Respiratory",
+      "difficulty": "L3",
+      "question": "A patient with suspected pulmonary embolism has a low pretest probability. What is the appropriate diagnostic pathway?",
+      "key_terms": [
+        "d-dimer",
+        "ct pulmonary angiography",
+        "wells score",
+        "pretest probability"
+      ],
+      "reference_answer": "With a low pretest probability, a D-dimer test is appropriate first; if negative, PE can generally be excluded without further imaging. If positive or pretest probability is higher, CT pulmonary angiography is the next step."
+    },
+    {
+      "id": "Q031",
+      "category": "Endocrine",
+      "difficulty": "L1",
+      "question": "What hormone is deficient in Type 1 diabetes mellitus?",
+      "key_terms": [
+        "insulin",
+        "beta cell"
+      ],
+      "reference_answer": "Type 1 diabetes mellitus results from autoimmune destruction of pancreatic beta cells, causing an absolute deficiency of insulin."
+    },
+    {
+      "id": "Q032",
+      "category": "Endocrine",
+      "difficulty": "L1",
+      "question": "What is the function of thyroid hormones T3 and T4?",
+      "key_terms": [
+        "metabolism",
+        "metabolic rate",
+        "thyroid"
+      ],
+      "reference_answer": "T3 and T4 regulate the body's metabolic rate, influencing heart rate, temperature, and energy expenditure."
+    },
+    {
+      "id": "Q033",
+      "category": "Endocrine",
+      "difficulty": "L1",
+      "question": "What does HbA1c reflect?",
+      "key_terms": [
+        "average blood glucose",
+        "3 months",
+        "glycated hemoglobin"
+      ],
+      "reference_answer": "HbA1c reflects average blood glucose levels over the preceding 2-3 months, based on glycation of hemoglobin."
+    },
+    {
+      "id": "Q034",
+      "category": "Endocrine",
+      "difficulty": "L2",
+      "question": "A 22-year-old presents with 3 weeks of polyuria, polydipsia, and weight loss. What is the likely diagnosis and the initial management?",
+      "key_terms": [
+        "type 1 diabetes",
+        "insulin",
+        "new-onset diabetes"
+      ],
+      "reference_answer": "This presentation suggests new-onset Type 1 diabetes mellitus. Initial management is insulin therapy, with evaluation for diabetic ketoacidosis."
+    },
+    {
+      "id": "Q035",
+      "category": "Endocrine",
+      "difficulty": "L2",
+      "question": "A patient on diuretics presents with weakness, muscle cramps, and palpitations; potassium is 2.8. How should hypokalemia be corrected?",
+      "key_terms": [
+        "potassium replacement",
+        "oral potassium",
+        "iv potassium",
+        "ecg monitoring"
+      ],
+      "reference_answer": "Hypokalemia should be corrected with oral or IV potassium replacement, with cardiac (ECG) monitoring given the risk of arrhythmia, and the underlying cause (diuretic use) addressed."
+    },
+    {
+      "id": "Q036",
+      "category": "Endocrine",
+      "difficulty": "L2",
+      "question": "What are the diagnostic criteria for diabetic ketoacidosis (DKA)?",
+      "key_terms": [
+        "hyperglycemia",
+        "ketosis",
+        "metabolic acidosis",
+        "anion gap"
+      ],
+      "reference_answer": "DKA is diagnosed by the triad of hyperglycemia, ketosis (elevated ketones), and metabolic acidosis with an elevated anion gap."
+    },
+    {
+      "id": "Q037",
+      "category": "Endocrine",
+      "difficulty": "L2",
+      "question": "What is the first-line pharmacologic treatment for newly diagnosed Type 2 diabetes mellitus?",
+      "key_terms": [
+        "metformin"
+      ],
+      "reference_answer": "Metformin is the first-line pharmacologic treatment for newly diagnosed Type 2 diabetes mellitus, alongside lifestyle modification."
+    },
+    {
+      "id": "Q038",
+      "category": "Endocrine",
+      "difficulty": "L3",
+      "question": "A patient in DKA is being treated with IV insulin. What electrolyte must be monitored closely and corrected before or during insulin therapy, and why?",
+      "key_terms": [
+        "potassium",
+        "hypokalemia",
+        "intracellular shift"
+      ],
+      "reference_answer": "Potassium must be monitored closely. Insulin drives potassium intracellularly, which can precipitate severe hypokalemia and arrhythmia if potassium is not replaced before or alongside insulin therapy."
+    },
+    {
+      "id": "Q039",
+      "category": "Endocrine",
+      "difficulty": "L3",
+      "question": "Explain the mechanism by which SGLT2 inhibitors lower blood glucose and their additional cardiorenal benefits.",
+      "key_terms": [
+        "sglt2",
+        "glucose reabsorption",
+        "glycosuria",
+        "cardiorenal",
+        "heart failure"
+      ],
+      "reference_answer": "SGLT2 inhibitors block glucose reabsorption in the proximal renal tubule, causing glycosuria and lowering blood glucose. They also reduce intraglomerular pressure and have demonstrated cardiorenal benefits, including reduced heart failure hospitalizations and slowed progression of chronic kidney disease."
+    },
+    {
+      "id": "Q040",
+      "category": "Endocrine",
+      "difficulty": "L3",
+      "question": "Compare the clinical presentation and biochemical findings of SIADH versus diabetes insipidus.",
+      "key_terms": [
+        "siadh",
+        "diabetes insipidus",
+        "hyponatremia",
+        "hypernatremia",
+        "urine osmolality"
+      ],
+      "reference_answer": "SIADH causes water retention, hyponatremia, and concentrated urine due to excess ADH. Diabetes insipidus causes excessive dilute urine output and hypernatremia due to insufficient ADH action, either central (deficient ADH) or nephrogenic (renal resistance to ADH)."
+    },
+    {
+      "id": "Q041",
+      "category": "Critical Care",
+      "difficulty": "L1",
+      "question": "What are the classic signs of meningeal irritation on physical exam?",
+      "key_terms": [
+        "nuchal rigidity",
+        "kernig",
+        "brudzinski",
+        "neck stiffness"
+      ],
+      "reference_answer": "Classic signs of meningeal irritation include nuchal rigidity (neck stiffness), a positive Kernig's sign, and a positive Brudzinski's sign."
+    },
+    {
+      "id": "Q042",
+      "category": "Critical Care",
+      "difficulty": "L1",
+      "question": "Define sepsis according to the Sepsis-3 criteria.",
+      "key_terms": [
+        "life-threatening",
+        "organ dysfunction",
+        "infection",
+        "dysregulated response"
+      ],
+      "reference_answer": "Sepsis-3 defines sepsis as life-threatening organ dysfunction caused by a dysregulated host response to infection."
+    },
+    {
+      "id": "Q043",
+      "category": "Critical Care",
+      "difficulty": "L1",
+      "question": "What is the empiric antibiotic of choice for suspected bacterial meningitis in an adult?",
+      "key_terms": [
+        "ceftriaxone",
+        "vancomycin",
+        "empiric"
+      ],
+      "reference_answer": "Empiric therapy for suspected bacterial meningitis in adults typically includes ceftriaxone plus vancomycin, often with dexamethasone."
+    },
+    {
+      "id": "Q044",
+      "category": "Critical Care",
+      "difficulty": "L2",
+      "question": "A 54-year-old presents with septic shock from urosepsis (fever 40C, BP 88/52, HR 128). What are the key components of the sepsis bundle, and within what time frame should they be initiated?",
+      "key_terms": [
+        "blood cultures",
+        "lactate",
+        "fluids",
+        "antibiotics",
+        "1 hour"
+      ],
+      "reference_answer": "The sepsis bundle includes obtaining blood cultures, measuring lactate, starting broad-spectrum antibiotics, and beginning IV fluid resuscitation, ideally all within the first hour of recognition."
+    },
+    {
+      "id": "Q045",
+      "category": "Critical Care",
+      "difficulty": "L2",
+      "question": "What CSF glucose and protein pattern is expected in bacterial versus viral meningitis?",
+      "key_terms": [
+        "low glucose",
+        "high protein",
+        "bacterial",
+        "viral",
+        "normal glucose"
+      ],
+      "reference_answer": "Bacterial meningitis typically shows low CSF glucose and high protein, while viral meningitis typically shows normal glucose and only mildly elevated protein."
+    },
+    {
+      "id": "Q046",
+      "category": "Critical Care",
+      "difficulty": "L2",
+      "question": "A patient with septic shock remains hypotensive despite adequate fluid resuscitation. What is the first-line vasopressor?",
+      "key_terms": [
+        "norepinephrine",
+        "vasopressor"
+      ],
+      "reference_answer": "Norepinephrine is the first-line vasopressor for septic shock that persists despite adequate fluid resuscitation."
+    },
+    {
+      "id": "Q047",
+      "category": "Critical Care",
+      "difficulty": "L2",
+      "question": "What is the recommended timing for antibiotic administration in suspected septic shock?",
+      "key_terms": [
+        "1 hour",
+        "as soon as possible",
+        "broad-spectrum"
+      ],
+      "reference_answer": "Broad-spectrum antibiotics should be administered as soon as possible, ideally within 1 hour of recognizing septic shock, after blood cultures are drawn."
+    },
+    {
+      "id": "Q048",
+      "category": "Critical Care",
+      "difficulty": "L3",
+      "question": "Explain why early antibiotic administration in septic shock improves survival.",
+      "key_terms": [
+        "mortality",
+        "delay",
+        "golden hour",
+        "organ dysfunction"
+      ],
+      "reference_answer": "Each hour of delay in appropriate antibiotic therapy during septic shock is associated with increased mortality, as ongoing untreated infection drives progressive organ dysfunction and hemodynamic collapse; early treatment interrupts this cascade."
+    },
+    {
+      "id": "Q049",
+      "category": "Critical Care",
+      "difficulty": "L3",
+      "question": "A neutropenic febrile cancer patient presents with fever. What is the recommended empiric antibiotic approach, and why does timing matter so much in this population?",
+      "key_terms": [
+        "broad-spectrum",
+        "pseudomonas",
+        "neutropenic fever",
+        "immediate"
+      ],
+      "reference_answer": "Neutropenic fever requires immediate broad-spectrum antibiotics with antipseudomonal coverage (e.g., cefepime or piperacillin-tazobactam), because these patients lack a normal immune response and can deteriorate rapidly from untreated infection."
+    },
+    {
+      "id": "Q050",
+      "category": "Critical Care",
+      "difficulty": "L3",
+      "question": "Discuss the rationale for adding dexamethasone in bacterial meningitis treatment.",
+      "key_terms": [
+        "dexamethasone",
+        "inflammation",
+        "streptococcus pneumoniae",
+        "neurological outcome"
+      ],
+      "reference_answer": "Dexamethasone is given alongside antibiotics in bacterial meningitis, particularly when Streptococcus pneumoniae is suspected, to reduce the inflammatory response to bacterial lysis and improve neurological outcomes, including reducing hearing loss."
+    },
+    {
+      "id": "Q051",
+      "category": "Pharmacology",
+      "difficulty": "L1",
+      "question": "What is the mechanism of action of aspirin?",
+      "key_terms": [
+        "cox",
+        "cyclooxygenase",
+        "platelet",
+        "thromboxane"
+      ],
+      "reference_answer": "Aspirin irreversibly inhibits cyclooxygenase (COX), reducing thromboxane A2 production and thereby inhibiting platelet aggregation."
+    },
+    {
+      "id": "Q052",
+      "category": "Pharmacology",
+      "difficulty": "L1",
+      "question": "What class of drug is metformin, and what is its primary mechanism?",
+      "key_terms": [
+        "biguanide",
+        "hepatic glucose production",
+        "insulin sensitivity"
+      ],
+      "reference_answer": "Metformin is a biguanide that primarily works by reducing hepatic glucose production and improving peripheral insulin sensitivity."
+    },
+    {
+      "id": "Q053",
+      "category": "Pharmacology",
+      "difficulty": "L1",
+      "question": "What is the mechanism of action of beta-blockers in reducing cardiac workload?",
+      "key_terms": [
+        "beta receptor",
+        "heart rate",
+        "contractility",
+        "sympathetic"
+      ],
+      "reference_answer": "Beta-blockers block beta-adrenergic receptors, reducing heart rate and contractility, which decreases myocardial oxygen demand and cardiac workload."
+    },
+    {
+      "id": "Q054",
+      "category": "Pharmacology",
+      "difficulty": "L2",
+      "question": "What is the mechanism of action of ACE inhibitors and their primary clinical use?",
+      "key_terms": [
+        "angiotensin",
+        "vasodilation",
+        "hypertension",
+        "heart failure"
+      ],
+      "reference_answer": "ACE inhibitors block conversion of angiotensin I to angiotensin II, reducing vasoconstriction and aldosterone release; they are primarily used for hypertension and heart failure."
+    },
+    {
+      "id": "Q055",
+      "category": "Pharmacology",
+      "difficulty": "L2",
+      "question": "Why are NSAIDs contraindicated in patients with acute kidney injury or heart failure?",
+      "key_terms": [
+        "prostaglandin",
+        "renal perfusion",
+        "afferent arteriole"
+      ],
+      "reference_answer": "NSAIDs inhibit prostaglandin synthesis, which normally maintains afferent arteriolar dilation and renal perfusion; blocking this can worsen renal perfusion and fluid retention in patients with AKI or heart failure."
+    },
+    {
+      "id": "Q056",
+      "category": "Pharmacology",
+      "difficulty": "L2",
+      "question": "What is the mechanism by which loop diuretics cause hypokalemia?",
+      "key_terms": [
+        "loop of henle",
+        "sodium reabsorption",
+        "distal tubule",
+        "potassium loss"
+      ],
+      "reference_answer": "Loop diuretics inhibit sodium reabsorption in the loop of Henle, increasing distal sodium delivery, which promotes sodium-potassium exchange in the distal tubule and increased urinary potassium loss."
+    },
+    {
+      "id": "Q057",
+      "category": "Pharmacology",
+      "difficulty": "L2",
+      "question": "What are the major contraindications to thrombolytic therapy in acute ischemic stroke?",
+      "key_terms": [
+        "active bleeding",
+        "recent surgery",
+        "hemorrhage",
+        "anticoagulation"
+      ],
+      "reference_answer": "Major contraindications include active internal bleeding, recent major surgery or trauma, history of intracranial hemorrhage, and current therapeutic anticoagulation, due to increased bleeding risk."
+    },
+    {
+      "id": "Q058",
+      "category": "Pharmacology",
+      "difficulty": "L3",
+      "question": "Explain the mechanism of warfarin and why vitamin K alone is insufficient for emergent reversal in major bleeding.",
+      "key_terms": [
+        "vitamin k epoxide reductase",
+        "clotting factors",
+        "prothrombin complex concentrate"
+      ],
+      "reference_answer": "Warfarin inhibits vitamin K epoxide reductase, blocking synthesis of clotting factors II, VII, IX, and X. Vitamin K administration alone takes hours to restore factor synthesis, so emergent major bleeding requires immediate factor replacement with prothrombin complex concentrate or fresh frozen plasma in addition to vitamin K."
+    },
+    {
+      "id": "Q059",
+      "category": "Pharmacology",
+      "difficulty": "L3",
+      "question": "Compare the mechanisms of action of P2Y12 inhibitors and aspirin in preventing arterial thrombosis.",
+      "key_terms": [
+        "p2y12 receptor",
+        "adp",
+        "cyclooxygenase",
+        "platelet aggregation"
+      ],
+      "reference_answer": "Aspirin inhibits cyclooxygenase to reduce thromboxane A2-mediated platelet activation, while P2Y12 inhibitors (e.g., clopidogrel) block the ADP receptor on platelets, preventing ADP-mediated platelet activation; together they provide complementary dual antiplatelet inhibition."
+    },
+    {
+      "id": "Q060",
+      "category": "Pharmacology",
+      "difficulty": "L3",
+      "question": "Explain why combining ACE inhibitors with potassium-sparing diuretics increases the risk of hyperkalemia.",
+      "key_terms": [
+        "aldosterone",
+        "potassium retention",
+        "hyperkalemia",
+        "renin-angiotensin"
+      ],
+      "reference_answer": "ACE inhibitors reduce aldosterone secretion, decreasing renal potassium excretion, while potassium-sparing diuretics directly block potassium excretion in the distal nephron; combining both mechanisms additively increases the risk of hyperkalemia and requires close potassium monitoring."
+    }
+  ]
+}
