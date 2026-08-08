@@ -1,0 +1,9 @@
+[project]
+name = "dhs-slm-workshop"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pylance>=10.0.0",
+]
