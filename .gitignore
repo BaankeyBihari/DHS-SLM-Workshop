@@ -1,3 +1,27 @@
+# Virtual environments
+.venv/
+
+# OS metadata
+.DS_Store
+
+# Office temp/lock files
+~$*.pptx
+~$*.docx
+
+# Local workshop storage (weights, models, evaluation sets)
+SLM_Workshop/
+Notebooks/eval_results/
+Notebooks/smollm_epoch11/
+
+# Generated outputs & media files
+*.png
+*.wav
+*.mp3
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Legacy key / token saves
 .tokensave/
 .tokensave
 .open_ai_api.key
