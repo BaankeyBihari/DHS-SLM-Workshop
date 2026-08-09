@@ -90,13 +90,21 @@ if [ -n "$OPENAI_API_KEY" ]; then
 fi
 echo ""
 
-# 1. Install 'tree' command
+# 1. Install 'tree' and 'cmake' commands
+package_list=""
 if ! command -v tree &> /dev/null; then
-    echo "📦 Installing 'tree' utility..."
-    sudo apt-get update -y && sudo apt-get install -y tree
-    echo "✅ 'tree' installed successfully."
+    package_list="$package_list tree"
+fi
+if ! command -v cmake &> /dev/null; then
+    package_list="$package_list cmake"
+fi
+
+if [ -n "$package_list" ]; then
+    echo "📦 Installing missing utilities:$package_list..."
+    sudo apt-get update -y && sudo apt-get install -y $package_list
+    echo "✅ Utilities installed successfully."
 else
-    echo "✅ 'tree' is already installed."
+    echo "✅ All system utilities (tree, cmake) are already installed."
 fi
 
 # 2. Install GitHub CLI (gh) via official apt repository
