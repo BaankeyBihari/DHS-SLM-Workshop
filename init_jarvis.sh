@@ -25,7 +25,58 @@ while [[ "$#" -gt 0 ]]; do
     shift
 done
 
+# Helper function to write/update environment variables in ~/.bashrc
+write_env_var() {
+    local var_name="$1"
+    local var_val="$2"
+    local rc_file="$HOME/.bashrc"
+    
+    # Create file if it doesn't exist
+    touch "$rc_file"
+    
+    # Check if variable is already in ~/.bashrc
+    if grep -q "export $var_name=" "$rc_file"; then
+        # Replace existing export (using | as delimiter to handle slash characters in keys)
+        sed -i "s|export $var_name=.*|export $var_name=\"$var_val\"|g" "$rc_file"
+    else
+        # Append new export
+        echo "export $var_name=\"$var_val\"" >> "$rc_file"
+    fi
+}
+
 echo "⚙️  Starting JarvisLabs initialization..."
+
+# ── Step 0: Prompt and Persist Hugging Face and OpenAI Keys ──
+echo "🔑 Checking credentials..."
+
+# Hugging Face Token setup
+if [ -z "$HF_TOKEN" ] && [ -z "$GITHUB_ACTIONS" ]; then
+    read -rp "👉 Enter your Hugging Face Token (leave empty to skip): " input_hf
+    if [ -n "$input_hf" ]; then
+        HF_TOKEN="$input_hf"
+    fi
+fi
+
+if [ -n "$HF_TOKEN" ]; then
+    write_env_var "HF_TOKEN" "$HF_TOKEN"
+    export HF_TOKEN
+    echo "✅ HF_TOKEN configured and added to ~/.bashrc"
+fi
+
+# OpenAI API Key setup
+if [ -z "$OPENAI_API_KEY" ] && [ -z "$GITHUB_ACTIONS" ]; then
+    read -rp "👉 Enter your OpenAI API Key (leave empty to skip): " input_openai
+    if [ -n "$input_openai" ]; then
+        OPENAI_API_KEY="$input_openai"
+    fi
+fi
+
+if [ -n "$OPENAI_API_KEY" ]; then
+    write_env_var "OPENAI_API_KEY" "$OPENAI_API_KEY"
+    export OPENAI_API_KEY
+    echo "✅ OPENAI_API_KEY configured and added to ~/.bashrc"
+fi
+echo ""
 
 # 1. Install 'tree' command
 if ! command -v tree &> /dev/null; then
