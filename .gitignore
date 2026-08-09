@@ -25,3 +25,5 @@ Notebooks/smollm_epoch11/
 .tokensave/
 .tokensave
 .open_ai_api.key
+.env
+

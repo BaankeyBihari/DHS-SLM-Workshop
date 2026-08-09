@@ -44,6 +44,16 @@ write_env_var() {
             echo "export $var_name=\"$var_val\"" >> "$rc_file"
         fi
     done
+    
+    # Write to local .env file in the workspace root
+    local env_file
+    env_file="$(dirname "$0")/.env"
+    touch "$env_file"
+    if grep -q "^$var_name=" "$env_file"; then
+        sed -i "s|^$var_name=.*|$var_name=\"$var_val\"|g" "$env_file"
+    else
+        echo "$var_name=\"$var_val\"" >> "$env_file"
+    fi
 }
 
 echo "⚙️  Starting JarvisLabs initialization..."
