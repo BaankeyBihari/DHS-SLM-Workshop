@@ -36,14 +36,15 @@ else
     echo "✅ 'tree' is already installed."
 fi
 
-# 2. Install GitHub CLI (gh) via direct binary download (faster than apt repositories)
+# 2. Install GitHub CLI (gh) via official apt repository
 if ! command -v gh &> /dev/null; then
-    echo "📦 Downloading and installing GitHub CLI..."
-    GH_VERSION="2.45.0"
-    curl -sSL "https://github.com/cli/cli/releases/download/v${GH_VERSION}/gh_${GH_VERSION}_linux_amd64.tar.gz" -o gh.tar.gz
-    tar -xf gh.tar.gz
-    sudo mv "gh_${GH_VERSION}_linux_amd64/bin/gh" /usr/local/bin/gh
-    rm -rf gh.tar.gz "gh_${GH_VERSION}_linux_amd64"
+    echo "📦 Installing GitHub CLI via apt..."
+    sudo mkdir -p -m 755 /etc/apt/keyrings
+    curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null
+    sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+    sudo apt-get update -y
+    sudo apt-get install -y gh
     echo "✅ GitHub CLI (gh) installed successfully."
 else
     echo "✅ GitHub CLI (gh) is already installed."
