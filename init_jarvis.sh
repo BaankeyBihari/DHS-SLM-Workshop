@@ -25,23 +25,25 @@ while [[ "$#" -gt 0 ]]; do
     shift
 done
 
-# Helper function to write/update environment variables in ~/.bashrc
+# Helper function to write/update environment variables in multiple shell configs
 write_env_var() {
     local var_name="$1"
     local var_val="$2"
-    local rc_file="$HOME/.bashrc"
     
-    # Create file if it doesn't exist
-    touch "$rc_file"
-    
-    # Check if variable is already in ~/.bashrc
-    if grep -q "export $var_name=" "$rc_file"; then
-        # Replace existing export (using | as delimiter to handle slash characters in keys)
-        sed -i "s|export $var_name=.*|export $var_name=\"$var_val\"|g" "$rc_file"
-    else
-        # Append new export
-        echo "export $var_name=\"$var_val\"" >> "$rc_file"
-    fi
+    # Write to .bashrc (Bash), .zshrc (Zsh), and .profile (Login/Jupyter daemon)
+    for rc_file in "$HOME/.bashrc" "$HOME/.zshrc" "$HOME/.profile"; do
+        # Create file if it doesn't exist
+        touch "$rc_file"
+        
+        # Check if variable is already in the file
+        if grep -q "export $var_name=" "$rc_file"; then
+            # Replace existing export (using | as delimiter to handle slash characters in keys)
+            sed -i "s|export $var_name=.*|export $var_name=\"$var_val\"|g" "$rc_file"
+        else
+            # Append new export
+            echo "export $var_name=\"$var_val\"" >> "$rc_file"
+        fi
+    done
 }
 
 echo "⚙️  Starting JarvisLabs initialization..."
